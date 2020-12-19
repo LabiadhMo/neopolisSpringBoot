@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/alltracks")
+    @RequestMapping("/alltracks")
 public class TrackController {
     @Autowired
     TrackRepo trackRepo;
@@ -29,8 +29,6 @@ public class TrackController {
 
     @GetMapping
     ResponseEntity<?> getAll(){
-        TrackResponse trackResponse=new TrackResponse();
-        List<TrackEntity> trackEntities=trackRepo.findAll();
         return new ResponseEntity(trackRepo.findAll(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
@@ -53,7 +51,7 @@ public class TrackController {
                 trackEntity.setPath(listOfFiles[i].getAbsolutePath());
                 Optional<AlbumEntity> albumEntity=albumRepo.findById(j);
                 AlbumEntity al=albumEntity.get();
-                trackEntity.setAlbumId(al);
+                trackEntity.setAlbum_id(al);
                 trackRepo.save(trackEntity);
             }
         }}

@@ -18,7 +18,6 @@ public class AlbumEntity {
     int album_id;
     String album_name;
 
-    @OneToMany(fetch = FetchType.LAZY   , mappedBy = "albumId")
-    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY   , mappedBy = "album_id")
     private List<TrackEntity> tracks;
 }

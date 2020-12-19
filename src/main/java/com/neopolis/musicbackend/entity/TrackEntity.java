@@ -19,9 +19,8 @@ public class TrackEntity {
 
     String name;
     String path;
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name="albumId")
-    AlbumEntity albumId;
+    @JsonIgnore
+    AlbumEntity album_id;
 
 }
